@@ -1,0 +1,8 @@
+### User sign up / Create a user
+POST {{server_url}}/
+Content-Type: application/json
+
+{
+  "name": "Karl",
+  "distance": 1
+}
