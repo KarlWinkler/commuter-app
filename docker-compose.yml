@@ -1,0 +1,24 @@
+services:
+# Fiber backend
+  backend:
+    container_name: go-backend
+    build:
+      context: ./backend
+      dockerfile: dockerfile-backend
+    ports:
+      - "8080:3001"
+    volumes:
+      - ./backend:/app
+
+  # Svelte frontend
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: dockerfile-frontend
+    container_name: svelte-frontend
+    ports:
+      - "5050:3000"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app

@@ -1,0 +1,16 @@
+# backend/Dockerfile
+
+# Use a Go base image
+FROM golang:1.20-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy the Go source code
+COPY . .
+
+# Install dependencies (if any)
+RUN go mod tidy
+
+# Run the Go app
+CMD ["go", "run", "./app"]

@@ -1,6 +1,6 @@
 module github.com/karlwinkler/web-server
 
-go 1.23.4
+go 1.20
 
 require github.com/gofiber/fiber/v2 v2.52.6
 

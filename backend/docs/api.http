@@ -1,5 +1,5 @@
 ### User sign up / Create a user
-POST {{server_url}}/
+POST {{server_url}}/submit
 Content-Type: application/json
 
 {
