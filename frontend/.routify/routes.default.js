@@ -5,15 +5,44 @@ export default {
   "id": "_default",
   "name": "",
   "file": {
-    "path": "src/routes",
-    "dir": "src",
-    "base": "routes",
-    "ext": "",
-    "name": "routes"
+    "path": "src/routes/_module.svelte",
+    "dir": "src/routes",
+    "base": "_module.svelte",
+    "ext": ".svelte",
+    "name": "_module"
   },
+  "asyncModule": () => import('../src/routes/_module.svelte'),
   "rootName": "default",
   "routifyDir": import.meta.url,
   "children": [
+    {
+      "meta": {},
+      "id": "_default_footer_svelte",
+      "name": "footer",
+      "file": {
+        "path": "src/routes/footer.svelte",
+        "dir": "src/routes",
+        "base": "footer.svelte",
+        "ext": ".svelte",
+        "name": "footer"
+      },
+      "asyncModule": () => import('../src/routes/footer.svelte'),
+      "children": []
+    },
+    {
+      "meta": {},
+      "id": "_default_header_svelte",
+      "name": "header",
+      "file": {
+        "path": "src/routes/header.svelte",
+        "dir": "src/routes",
+        "base": "header.svelte",
+        "ext": ".svelte",
+        "name": "header"
+      },
+      "asyncModule": () => import('../src/routes/header.svelte'),
+      "children": []
+    },
     {
       "meta": {
         "isDefault": true

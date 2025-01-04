@@ -1,0 +1,28 @@
+body {
+  --black: #032;
+  --white: #fff4f7;
+  --red: #ee5353;
+  --light-red: #f7cdcd;
+  --background: #ece2e5;
+
+  --spacing-1: 2px;
+  --spacing-2: 4px;
+  --spacing-3: 8px;
+  --spacing-4: 16px;
+  --spacing-5: 32px;
+  --spacing-6: 48px;
+  --spacing-7: 64px;
+
+  --line-width: 1px;
+
+  --radius-small: 4px;
+  --radius-large: 10px;
+  --radius-round: 255px;
+
+  --font-size-small: 12px;
+  --font-size-large: 32px;
+
+  background-color: var(--background);
+  font-family: "Roboto", "Arial", "sans-serif";
+  margin: 0;
+}
