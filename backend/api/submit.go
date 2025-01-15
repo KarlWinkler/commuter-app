@@ -4,7 +4,6 @@ import(
 	"os"
 	"fmt"
 	"database/sql"
-	"encoding/json"
 
 	"github.com/karlwinkler/web-server/sqlc"
 
@@ -35,7 +34,7 @@ func (h *Handlers) Submit(ctx *fiber.Ctx) error {
 		return err
 	}
 
-	return ctx.SendString(fmt.Sprintf("Thank you for submitting, %s, %d, %d!", trip.Name, trip.Distance, trip.Mode))
+	return ctx.JSON(fmt.Sprintf("Thank you for submitting, %s, %d, %d!", trip.Name, trip.Distance, trip.Mode))
 }
 
 func (h *Handlers) List(ctx *fiber.Ctx) error {
@@ -50,7 +49,5 @@ func (h *Handlers) List(ctx *fiber.Ctx) error {
 		Result: trips,
 	}
 
-	json, err := json.Marshal(result)
-
-	return ctx.SendString(string(json))
+	return ctx.JSON(result)
 }
