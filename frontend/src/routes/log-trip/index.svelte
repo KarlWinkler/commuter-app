@@ -11,13 +11,17 @@
 
   const handleSubmit = async (e: Event) => {
     e.preventDefault()
-    world = name
+    let body = {
+      "name": name,
+      "distance": distance,
+      "mode": mode,
+    }
     const response = await fetch('http://localhost:3001/submit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({"name": name}),
+      body: JSON.stringify(body),
     })
   }
 </script>
