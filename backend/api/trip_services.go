@@ -37,7 +37,7 @@ func (h *Handlers) Submit(ctx *fiber.Ctx) error {
 	return ctx.JSON(fmt.Sprintf("Thank you for submitting, %s, %d, %d!", trip.Name, trip.Distance, trip.Mode))
 }
 
-func (h *Handlers) List(ctx *fiber.Ctx) error {
+func (h *Handlers) ListTrips(ctx *fiber.Ctx) error {
 	trips, err := h.QueryStore.ListTrips(ctx.Context())
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error querying database: %v\n", err)

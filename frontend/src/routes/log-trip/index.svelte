@@ -7,7 +7,13 @@
   let name = $state("")
   let distance = $state("0")
   let mode = $state(1)
-  let world = $state("World")
+
+  let modes = $state([])
+  $effect(async () => {
+    const response = await fetch('http://localhost:3001/modes')
+    const data = await response.json()
+    modes = data.Result.map((mode) => ({key: mode.ID, value: mode.Name.String}))
+  })
 
   const handleSubmit = async (e: Event) => {
     e.preventDefault()
@@ -27,16 +33,11 @@
 </script>
 
 <form>
-  <h1>Hello, {mode}!</h1>
+  <h1>Log Your Trip!</h1>
   <div class="form">
     <TextInput name="Name" bind:value={name} />
     <NumberInput name="Distance" bind:value={distance} />
-    <SelectInput name="Mode" bind:value={mode} options={[
-      {key: 1, value: "Car"},
-      {key: 2, value: "Bike"},
-      {key: 3, value: "Bus"},
-      {key: 4, value: "Train"}
-    ]} />
+    <SelectInput name="Mode" bind:value={mode} options={modes} />
   </div>
   <div class="submit">
     <Button onclick={handleSubmit} name="Log Trip" to="" variant="primary" />

@@ -6,5 +6,5 @@ import (
 
 func RegisterTripApi(router fiber.Router, handlers *Handlers) {
 	router.Post("/submit", handlers.Submit)
-	router.Get("/trips", handlers.List)
+	router.Get("/trips", handlers.ListTrips)
 }

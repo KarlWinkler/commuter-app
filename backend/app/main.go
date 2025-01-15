@@ -29,6 +29,7 @@ func main() {
 
 	router := app.Group("/")
 	api.RegisterTripApi(router, handlers)
+	api.RegisterModeApi(router, handlers)
 
 	router.Get("/", func (c *fiber.Ctx) error {
 		return c.SendString("Hello, World!")
