@@ -5,6 +5,7 @@ import (
 	
 	"github.com/karlwinkler/web-server/db"
 	"github.com/karlwinkler/web-server/api"
+	"github.com/karlwinkler/web-server/service"
 	
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
@@ -14,7 +15,7 @@ func main() {
 	database := db.New()
 	app := fiber.New()
 	queryStore := db.NewQueryStore(database)
-	handlers := api.NewHandler(queryStore)
+	handlers := service.NewHandler(queryStore)
 
 	app.Use(cors.New(cors.Config{
     AllowOrigins: "*",
