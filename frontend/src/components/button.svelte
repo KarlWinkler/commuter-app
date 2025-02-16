@@ -1,10 +1,8 @@
-<script>
+<script lang='ts'>
   let { name, to, variant, size, ...rest } = $props()
 </script>
 
-<div class="button {variant} {size}" {...rest}>
-  <a href={to}>{name}</a>
-</div>
+<a class="button {variant} {size}" href={to} {...rest}>{name}</a>
 
 <style>
   a {
@@ -15,6 +13,8 @@
   .button {
     border-radius: var(--radius-small);
     padding: var(--spacing-3);
+
+    cursor: pointer;
   }
 
   .button:hover {

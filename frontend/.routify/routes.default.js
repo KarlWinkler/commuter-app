@@ -91,6 +91,37 @@ export default {
       ]
     },
     {
+      "meta": {},
+      "id": "_default_success",
+      "name": "success",
+      "module": false,
+      "file": {
+        "path": "src/routes/success",
+        "dir": "src/routes",
+        "base": "success",
+        "ext": "",
+        "name": "success"
+      },
+      "children": [
+        {
+          "meta": {
+            "isDefault": true
+          },
+          "id": "_default_success_index_svelte",
+          "name": "index",
+          "file": {
+            "path": "src/routes/success/index.svelte",
+            "dir": "src/routes/success",
+            "base": "index.svelte",
+            "ext": ".svelte",
+            "name": "index"
+          },
+          "asyncModule": () => import('../src/routes/success/index.svelte'),
+          "children": []
+        }
+      ]
+    },
+    {
       "meta": {
         "dynamic": true,
         "dynamicSpread": true,

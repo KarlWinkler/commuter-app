@@ -1,5 +1,5 @@
-<script>
-  let { name, type, value = $bindable('') } = $props()
+<script lang='ts'>
+  let { name, value = $bindable('') } = $props()
 </script>
 
 <label for={name}>{name}</label>

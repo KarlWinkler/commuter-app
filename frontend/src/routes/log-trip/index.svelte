@@ -3,16 +3,26 @@
   import NumberInput from '/src/components/numberInput.svelte'
   import SelectInput from '/src/components/selectInput.svelte'
   import TextInput from '/src/components/textInput.svelte'
+  import { goto } from "@roxi/routify";
+
+  type Mode = {
+    ID: number
+    Name: {
+      String: string
+    }
+  }
 
   let name = $state("")
-  let distance = $state("0")
+  let distance = $state(0)
   let mode = $state(1)
 
+  let redirect = $goto
+
   let modes = $state([])
-  $effect(async () => {
+  $effect(() => async () => {
     const response = await fetch('http://localhost:3001/modes')
     const data = await response.json()
-    modes = data.Result.map((mode) => ({key: mode.ID, value: mode.Name.String}))
+    modes = data.Result.map((mode: Mode) => ({key: mode.ID, value: mode.Name.String}))
   })
 
   const handleSubmit = async (e: Event) => {
@@ -29,6 +39,9 @@
       },
       body: JSON.stringify(body),
     })
+
+    console.log(response)
+    redirect('/success')
   }
 </script>
 
@@ -61,6 +74,7 @@
   }
 
   .submit {
+    margin-top: var(--spacing-4);
     width: fit-content;
   }
 </style>
